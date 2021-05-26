@@ -28,6 +28,8 @@ Tag.belongsToMany(Product, {
     model: ProductTag,
     unique: false
   },
+   // Define an alias for when data is retrieved
+   as: 'product_join'
 });
 
 module.exports = {
