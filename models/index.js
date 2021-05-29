@@ -18,17 +18,19 @@ Category.hasMany(Product, {
 Product.belongsToMany(Tag, {
   through: {
     model: ProductTag,
-  },
+  foreignKey: 'product_id',
   as: 'product_join'
- // Define an alias for when data is retrieved
+},
+// Define an alias for when data is retrieved
 });
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
   through: {
     model: ProductTag,
+    foreignKey: 'tag_id',
+    as: 'tag_join'
   },
-   // Define an alias for when data is retrieved
-   as: 'tag_join'
+  // Define an alias for when data is retrieved
 });
 
 module.exports = {
